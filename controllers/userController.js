@@ -7,7 +7,7 @@ exports.register = async (req, res) => {
     const user = new User(req.body)
     const token = await user.generateAuthToken()
     await user.save()
-    const contact = await user.generateContactBook()
+    
     res.status(201).send({
       status: res.statusCode,
       success: true,
