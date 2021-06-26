@@ -106,15 +106,15 @@ describe('api/books', () => {
           summary: 'Lorem Ipsum',
           publisher: 'Bentang Pustaka',
           pageCount: 529,
-        });
+        })
 
-      expect(res.status).to.equal(200);
-      expect(res.body).to.have.property("name", "newTest");
+      expect(res.status).to.equal(200)
+      expect(res.body).to.have.property('name', 'newTest')
     })
   })
 
-  describe("DELETE /:id", () => {
-    it("should delete requested id and return response 200", async () => {
+  describe('DELETE /:id', () => {
+    it('should delete requested id and return response 200', async () => {
       const book = new Book({
         name: 'Laskar Pelangi',
         year: 2005,
@@ -122,29 +122,29 @@ describe('api/books', () => {
         summary: 'Lorem Ipsum',
         publisher: 'Bentang Pustaka',
         pageCount: 529,
-      });
-      await book.save();
+      })
+      await book.save()
 
-      const res = await request(app).delete(`/api/books/${book._id}`);
-      expect(res.status).to.be.equal(200);
-    });
+      const res = await request(app).delete(`/api/books/${book._id}`)
+      expect(res.status).to.be.equal(200)
+    })
 
-    it("should return 404 when deleted book is requested", async () => {
+    it('should return 404 when deleted book is requested', async () => {
       const book = new Book({
         name: 'Laskar Pelangi',
-          year: 2005,
-          author: 'Andrea Hirata',
-          summary: 'Lorem Ipsum',
-          publisher: 'Bentang Pustaka',
-          pageCount: 529,
-      });
-      await book.save();
+        year: 2005,
+        author: 'Andrea Hirata',
+        summary: 'Lorem Ipsum',
+        publisher: 'Bentang Pustaka',
+        pageCount: 529,
+      })
+      await book.save()
 
-      let res = await request(app).delete(`/api/books/${book._id}`);
-      expect(res.status).to.be.equal(200);
+      let res = await request(app).delete(`/api/books/${book._id}`)
+      expect(res.status).to.be.equal(200)
 
-      res = await request(app).get(`/api/books/${book._id}`);
-      expect(res.status).to.be.equal(404);
-    });
-  });
+      res = await request(app).get(`/api/books/${book._id}`)
+      expect(res.status).to.be.equal(404)
+    })
+  })
 })
