@@ -6,7 +6,7 @@ exports.getAllBooks = async (req, res) => {
   res.send(books)
 }
 
-exports.getBooks = async (req, res) => {
+exports.getBook = async (req, res) => {
   let bookId = req.params.id
   if (!mongoose.Types.ObjectId.isValid(bookId))
     return res.status(400).send('Invalid object id')
@@ -17,7 +17,7 @@ exports.getBooks = async (req, res) => {
   return res.send(books)
 }
 
-exports.insertBooks = async (req, res) => {
+exports.insertBook = async (req, res) => {
   const { name, year, author, summary, publisher, pageCount } = req.body
   const book = new Book({
     name,
@@ -31,7 +31,7 @@ exports.insertBooks = async (req, res) => {
   return res.send(book)
 }
 
-exports.updateBooks = async (req, res) => {
+exports.updateBook = async (req, res) => {
   let bookId = req.params.id
   try {
     const book = await Book.findOneAndUpdate(bookId, req.body, {new : true})

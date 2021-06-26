@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon app.js",
     "format": "prettier --config .prettierrc --write */*.js",
-    "test" : "mocha --timeout 10000 --exit"
+    "test": "mocha --timeout 10000 --exit"
   },
   "keywords": [
     "expressjs",
