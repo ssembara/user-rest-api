@@ -30,7 +30,7 @@
   "devDependencies": {
     "dotenv": "^8.2.0",
     "husky": "^4.2.3",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "nodemon": "^2.0.2",
     "prettier": "^1.19.1"
   },
