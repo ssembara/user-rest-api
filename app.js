@@ -15,9 +15,12 @@ app.use(express.static(__dirname + '/public'))
 
 // Router 
 app.use('/api/users', require('./routes/user'))
+app.use('/api/books', require('./routes/book.route'))
 
 // Listen server
 const port = 3000
 app.listen(port, () => {
   console.log(`Server is running in ${port}`)
 })
+
+module.exports = app
