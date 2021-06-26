@@ -30,3 +30,19 @@ exports.insertBooks = async (req, res) => {
   await book.save()
   return res.send(book)
 }
+
+exports.updateBooks = async (req, res) => {
+  let bookId = req.params.id
+  try {
+    const book = await Book.findOneAndUpdate(bookId, req.body, {new : true})
+    return res.send(book) 
+  } catch (error) {
+    return res.status(500).send(error)
+  }
+}
+
+exports.destroyBook = async (req, res) => {
+  let bookId = req.params.id;
+  await Book.findByIdAndDelete(bookId);
+  return res.send("Book deleted");
+};
